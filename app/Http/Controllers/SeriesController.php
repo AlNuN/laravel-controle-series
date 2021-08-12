@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SeriesFormRequest;
 use App\Serie;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class SeriesController extends Controller
         return view('series.create');
     }
 
-    public function store (Request $request) {
+    public function store (SeriesFormRequest $request) {
         $serie = Serie::create($request->all());
 
         return redirect()->route('listar_series')
